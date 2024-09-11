@@ -1,15 +1,19 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 
 
-function MonthsField({terms,defaultTerm}) {
-    const [months,SetMonths]= useState(defaultTerm)
-    if (months<0) throw new Error("Value of the Month field should be a positive number")
+function MonthsField({termsArr,defaultTerm,terms,setTerms}) {
+    const [months,setMonths]= useState(defaultTerm)
+    useEffect(()=>{
+        setTerms(months)
+    },[months,setTerms])
+
+    
     
     return(
         <div className="monthsField">
             <p>Term (Month)</p>
-            <select value={months} onChange={(e)=>{ SetMonths(e.target.value)}} className="inputFields">
-                {terms.map(term=>(
+            <select value={months} onChange={(e)=>{ setMonths(e.target.value)}} className="inputFields">
+                {termsArr.map(term=>(
                     <option key={term} value={term}>{term}</option>
                 ))}
             </select>

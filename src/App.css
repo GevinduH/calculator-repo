@@ -54,3 +54,9 @@ div#root {
   height: 30px;
   text-align: center;
 }
+
+.errorShow {
+  display: flex;
+  color: red;
+  justify-content: center;
+}

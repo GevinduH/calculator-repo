@@ -1,10 +1,12 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 
 
-function AnnualMilesField() {
+function AnnualMilesField({mileage,setMileage}) {
     const [miles,SetMiles]= useState(12000)
     const mileages = [10000, 12000, 15000];
-    if (miles<0) throw new Error("Value of the Annual Miles field should be a positive number")
+    useEffect(()=>{
+        setMileage(miles)
+    },[miles,setMileage])
     
     return(
         <div className="annualMilesField">

@@ -1,8 +1,11 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 
 
-function APRfield() {
+function APRfield({aprValue,setAprValue}) {
     const [APR,SetAPR]= useState(0)
+    useEffect(()=>{
+        setAprValue(APR)
+    },[APR,setAprValue])
     return(
         <div className="APRfield">
             <p>Estimated APR</p>
