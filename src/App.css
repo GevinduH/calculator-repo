@@ -60,3 +60,29 @@ div#root {
   color: red;
   justify-content: center;
 }
+
+span.inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color:black;
+}
+
+.link:hover {
+  color: midnightblue;
+}
+
+.marginAdjest {
+  margin: 5 0;
+}
+
+.allInfor {
+  margin-top: 25px;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+  background-color:antiquewhite;
+}

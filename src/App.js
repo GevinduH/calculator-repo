@@ -8,9 +8,19 @@ import MonthsField from './components/MonthsField';
 import AnnualMilesField from './components/AnnualMiles';
 import APRfield from './components/APR.js';
 import ChooseCar from './components/chooseCar.js';
+import LoanComponent from './components/CalculateLoan.js';
+import InfoCard from './components/InfoCard.js';
+ 
 
 export const carModel = createContext();
 export const creditScore = createContext()
+export const tradeInValue = createContext()
+export const downPayment = createContext()
+export const apr = createContext()
+export const loanMonths = createContext()
+export const leaseMonths = createContext()
+export const mileageValue = createContext()
+export const taxes = createContext()
 
 function App() {
   const tabs = ['Loan','Lease']
@@ -23,6 +33,8 @@ function App() {
   const [loanTerms, setLoanTerms] = useState(24);
   const [leaseTerms, setLeaseTerms] = useState(36);
   const [mileage,setMileage]= useState(12000)
+  const [taxes,setTaxes] = useState( [11, 0, 66, 0, 0])
+
   function updateToggle(name){
     SetToggleTab(name)
   }
@@ -31,6 +43,12 @@ function App() {
     <div className='body'>
       <creditScore.Provider value={creditScoreValue}>
       <carModel.Provider value={car}>
+      <tradeInValue.Provider value={tradeFieldValue}>
+      <downPayment.Provider value={downPaymentValue}>
+      <apr.Provider value={aprValue}>
+      <loanMonths.Provider value={loanTerms}>
+      <leaseMonths.Provider value={leaseTerms}>
+      <mileageValue.Provider value={mileage}>
         <ChooseCar car={car} setCar={setCar}/>
         <div className="loanAndLeaseButtons">
           {tabs.map((tab)=>{
@@ -39,7 +57,7 @@ function App() {
         </div>
   
         <div className={toggleTab==='Loan'? 'showContent ':'hideContent'}>
-            <ZipcodeField/>
+            <ZipcodeField taxes={taxes} setTaxes={setTaxes} />
             <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
             <TradeOrDownPaymentField p={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
             <MonthsField termsArr={ [12, 24, 36, 48, 72, 84]} defaultTerm={24} terms={loanTerms} setTerms={setLoanTerms} />
@@ -51,11 +69,21 @@ function App() {
         <div className={toggleTab==='Lease'? 'showContent':'hideContent'}>
             <TradeOrDownPaymentField p={'Down Payment'} className={'DownPaymentField'} value={downPaymentValue} setValue={setdownPaymentValue}/>
             <TradeOrDownPaymentField p={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
-            <ZipcodeField/>
+            <ZipcodeField taxes={taxes} setTaxes={setTaxes}/>
             <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} terms={leaseTerms} setTerms={setLeaseTerms}/>
             <AnnualMilesField mileage={mileage} setMileage={setMileage} />
             <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
         </div>
+        <div className={toggleTab==='Loan'? 'showContent allInfor':'hideContent'}>
+          <InfoCard/>
+          <LoanComponent />
+        </div>
+      </mileageValue.Provider>
+      </leaseMonths.Provider>
+      </loanMonths.Provider>
+      </apr.Provider>
+      </downPayment.Provider>
+      </tradeInValue.Provider>
       </carModel.Provider>
       </creditScore.Provider>
     </div>

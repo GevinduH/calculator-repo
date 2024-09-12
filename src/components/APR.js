@@ -8,7 +8,7 @@ function APRfield({aprValue,setAprValue}) {
     },[APR,setAprValue])
     return(
         <div className="APRfield">
-            <p>Estimated APR</p>
+            <h3>Estimated APR</h3>
             <input type="text" value={APR} onChange={(e)=>{ SetAPR(e.target.value)}} className="inputFields"/> %
         </div>
     )

@@ -10,7 +10,7 @@ function LoanOrLeaseButton({NameOnButton,onClickfunc,classToggleProp}) {
         changeButtonName();
       }, [changeButtonName]);
     return (
-        <button className={classToggleProp===NameOnButton? `active ${NameOnButton}Button`:`${NameOnButton}Button`} value={NameOnButton} onClick={()=>{onClickfunc(NameOnButton)}}>{buttonName}</button>
+        <button className={classToggleProp===NameOnButton? `active ${NameOnButton}Button`:`${NameOnButton}Button`} value={NameOnButton} onClick={()=>{onClickfunc(NameOnButton)}}><h2>{buttonName}</h2></button>
     )
 }
 

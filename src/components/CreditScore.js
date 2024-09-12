@@ -19,7 +19,7 @@ function CreditScoreField({creditScoreValue,setCreditScoreValue}) {
 
     return(
         <div className="CreditScoreField">
-            <p>Approx. Credit Score</p>
+            <h3>Approx. Credit Score</h3>
             <input type="number" min="600" max="900" step="50" value={creditScore} onChange={(e) => setCreditScore(parseInt(e.target.value))} className="inputFields"/>
         </div>
     )

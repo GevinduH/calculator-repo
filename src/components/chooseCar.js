@@ -6,7 +6,7 @@ function ChooseCar({car, setCar}) {
     
     return(
             <div className="chooseCarField">
-                <span>Choose the model: </span>
+                <h1>Choose the model: </h1>
                 <select  onChange={(e)=>{ setCar(e.target.value)}} className="inputFields">
                     {mockData.map(model=>(
                         <option key={model['vehicleName']} value={model['vehicleName']}>{model['vehicleName']}</option>

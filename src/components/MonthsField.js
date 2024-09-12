@@ -11,7 +11,7 @@ function MonthsField({termsArr,defaultTerm,terms,setTerms}) {
     
     return(
         <div className="monthsField">
-            <p>Term (Month)</p>
+            <h3>Term (Month)</h3>
             <select value={months} onChange={(e)=>{ setMonths(e.target.value)}} className="inputFields">
                 {termsArr.map(term=>(
                     <option key={term} value={term}>{term}</option>
