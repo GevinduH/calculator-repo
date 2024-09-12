@@ -9,6 +9,7 @@ import AnnualMilesField from './components/AnnualMiles';
 import APRfield from './components/APR.js';
 import ChooseCar from './components/chooseCar.js';
 import LoanComponent from './components/CalculateLoan.js';
+import LeaseComponent from './components/CalculateLease.js';
 import InfoCard from './components/InfoCard.js';
  
 
@@ -74,9 +75,13 @@ function App() {
             <AnnualMilesField mileage={mileage} setMileage={setMileage} />
             <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
         </div>
-        <div className={toggleTab==='Loan'? 'showContent allInfor':'hideContent'}>
+        <div className={toggleTab==='Loan'? 'showContent allInfo':'hideContent'}>
           <InfoCard/>
           <LoanComponent />
+        </div>
+        <div className={toggleTab==='Lease'? 'showContent allInfo':'hideContent'}>
+          <InfoCard/>
+          <LeaseComponent/>
         </div>
       </mileageValue.Provider>
       </leaseMonths.Provider>
