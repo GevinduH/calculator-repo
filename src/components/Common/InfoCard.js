@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { carModel } from "../App";
-import mockData from "../api/MockDataAPI";
+import { carModel } from "../../App";
+import mockData from "../../api/MockDataAPI";
 
 function InfoCard() {
     const chosenCar = useContext(carModel)

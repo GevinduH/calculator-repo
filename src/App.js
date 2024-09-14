@@ -1,16 +1,10 @@
 import React,{createContext, useState} from 'react';
 import './App.css';
-import ZipcodeField from './components/ZipcodeInput.js';
-import CreditScoreField from './components/CreditScore';
-import LoanOrLeaseButton from './components/Loan&LeaseButton';
-import TradeOrDownPaymentField from './components/Trade&DownPaymentFields.js';
-import MonthsField from './components/MonthsField';
-import AnnualMilesField from './components/AnnualMiles';
-import APRfield from './components/APR.js';
-import ChooseCar from './components/chooseCar.js';
-import LoanComponent from './components/CalculateLoan.js';
-import LeaseComponent from './components/CalculateLease.js';
-import InfoCard from './components/InfoCard.js';
+import LoanOrLeaseButton from './components/Common/LoanOrLeaseButton.js';
+import ChooseCar from './components/Common/chooseCar.js';
+import LoanTab from './components/LoanComponents/LoanTab.js';
+import LeaseTab from './components/LeaseComponents/LeaseTab.js';
+
  
 
 export const carModel = createContext();
@@ -26,7 +20,7 @@ export const taxes = createContext()
 function App() {
   const tabs = ['Loan','Lease']
   const [car, setCar] = useState("Toyota Corolla");
-  const [toggleTab,SetToggleTab]=useState('Loan');
+  const [toggleTab,setToggleTab]=useState('Loan');
   const [creditScoreValue,setCreditScoreValue] = useState(0.95)
   const [tradeFieldValue,settradeFieldValue] = useState(0)
   const [downPaymentValue,setdownPaymentValue] = useState(0)
@@ -37,7 +31,7 @@ function App() {
   const [taxes,setTaxes] = useState( [11, 0, 66, 0, 0])
 
   function updateToggle(name){
-    SetToggleTab(name)
+    setToggleTab(name)
   }
 
   return (
@@ -56,33 +50,15 @@ function App() {
               return <LoanOrLeaseButton NameOnButton={tab} key={tab} onClickfunc={updateToggle} classToggleProp={toggleTab}/>
           })}
         </div>
-  
-        <div className={toggleTab==='Loan'? 'showContent ':'hideContent'}>
-            <ZipcodeField taxes={taxes} setTaxes={setTaxes} />
-            <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
-            <TradeOrDownPaymentField p={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
-            <MonthsField termsArr={ [12, 24, 36, 48, 72, 84]} defaultTerm={24} terms={loanTerms} setTerms={setLoanTerms} />
-            <TradeOrDownPaymentField p={'Down Payment'} className={'DownPaymentField'} value={downPaymentValue} setValue={setdownPaymentValue}/>
-            <APRfield aprValue={aprValue} setAprValue={setAprValue} />
-        </div>
 
+        {toggleTab==='Loan' && <LoanTab taxes={taxes} setTaxes={setTaxes} creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue} tradeFieldValue={tradeFieldValue} 
+        settradeFieldValue={settradeFieldValue} loanTerms={loanTerms} setLoanTerms={setLoanTerms}  downPaymentValue={downPaymentValue} setdownPaymentValue={setdownPaymentValue} 
+        aprValue={aprValue} setAprValue={setAprValue}/>}
 
-        <div className={toggleTab==='Lease'? 'showContent':'hideContent'}>
-            <TradeOrDownPaymentField p={'Down Payment'} className={'DownPaymentField'} value={downPaymentValue} setValue={setdownPaymentValue}/>
-            <TradeOrDownPaymentField p={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
-            <ZipcodeField taxes={taxes} setTaxes={setTaxes}/>
-            <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} terms={leaseTerms} setTerms={setLeaseTerms}/>
-            <AnnualMilesField mileage={mileage} setMileage={setMileage} />
-            <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
-        </div>
-        <div className={toggleTab==='Loan'? 'showContent allInfo':'hideContent'}>
-          <InfoCard/>
-          <LoanComponent />
-        </div>
-        <div className={toggleTab==='Lease'? 'showContent allInfo':'hideContent'}>
-          <InfoCard/>
-          <LeaseComponent/>
-        </div>
+        {toggleTab === 'Lease' && <LeaseTab downPaymentValue={downPaymentValue} setdownPaymentValue={setdownPaymentValue} tradeFieldValue={tradeFieldValue} settradeFieldValue={settradeFieldValue}
+        taxes={taxes} setTaxes={setTaxes} leaseTerms={leaseTerms} setLeaseTerms={setLeaseTerms} mileage={mileage} setMileage={setMileage} creditScoreValue={creditScoreValue} 
+        setCreditScoreValue={setCreditScoreValue}/>}
+
       </mileageValue.Provider>
       </leaseMonths.Provider>
       </loanMonths.Provider>

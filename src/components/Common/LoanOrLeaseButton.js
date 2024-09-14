@@ -1,9 +1,9 @@
 import React, { useState,useCallback,useEffect } from "react";
 
 function LoanOrLeaseButton({NameOnButton,onClickfunc,classToggleProp}) {
-    const [buttonName,SetButtonName] = useState('')
+    const [buttonName,setButtonName] = useState('')
     const changeButtonName = useCallback(() => {
-        SetButtonName(NameOnButton);
+        setButtonName(NameOnButton);
       }, [NameOnButton]); 
     
       useEffect(() => {

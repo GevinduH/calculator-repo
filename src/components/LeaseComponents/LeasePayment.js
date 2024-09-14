@@ -1,8 +1,8 @@
 import { useContext} from "react";
-import { carModel,tradeInValue,downPayment, loanMonths,creditScore,mileageValue} from "../App";
-import mockData from "../api/MockDataAPI";
+import { carModel,tradeInValue,downPayment, loanMonths,creditScore,mileageValue} from "../../App";
+import mockData from "../../api/MockDataAPI";
 
-function LeaseComponent() {
+function LeasePayment() {
     const chosenCar = useContext(carModel);
     const tradeIn = useContext(tradeInValue);
     const downPaymentValue = useContext(downPayment);
@@ -15,11 +15,11 @@ function LeaseComponent() {
     return (
       <div className="loanAmount">
         <b>MSRP</b> : $<del>{currCar.msrp} </del><br/>
-        <b>Est. Loan Payment:<span className="loanAmount"> ${leaseAmount}/mo</span></b>
+        <b>Est. Lease Payment:<span className="loanAmount"> ${leaseAmount}/mo</span></b>
       </div>
     );
   }
   
-export default LeaseComponent
+export default LeasePayment
 
 // (msrp - tradeIn - downPayment) * mileage / 10000 / term * creditScoreValue

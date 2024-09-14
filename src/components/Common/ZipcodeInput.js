@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function ZipcodeField({taxes,setTaxes}) {
-  const [zipcode,SetZipcode] = useState('10600');
+  const [zipcode,setZipcode] = useState('10600');
   
   useEffect(()=>{
     function calculateTaxes(zipcode) {
@@ -20,7 +20,7 @@ function ZipcodeField({taxes,setTaxes}) {
         value={zipcode}
         className="inputFields"
         onChange={(e) => {
-            SetZipcode(e.target.value);
+            setZipcode(e.target.value);
         }}
       />
     </div>

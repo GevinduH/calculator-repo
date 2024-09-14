@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 
 
 function AnnualMilesField({mileage,setMileage}) {
-    const [miles,SetMiles]= useState(12000)
+    const [miles,setMiles]= useState(12000)
     const mileages = [10000, 12000, 15000];
     useEffect(()=>{
         setMileage(miles)
@@ -11,7 +11,7 @@ function AnnualMilesField({mileage,setMileage}) {
     return(
         <div className="annualMilesField">
             <h3>Annual Miles</h3>
-            <select type="number" value={miles} onChange={(e)=>{ SetMiles(e.target.value)}} className="inputFields">
+            <select type="number" value={miles} onChange={(e)=>{ setMiles(e.target.value)}} className="inputFields">
                 {mileages.map(mileage=>(
                     <option key={mileage} value={mileage}>{mileage}</option>
                 ))}

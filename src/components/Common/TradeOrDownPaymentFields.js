@@ -1,6 +1,6 @@
 import React,{ useState,useContext, useEffect} from "react";
-import mockData from "../api/MockDataAPI";
-import { carModel } from "../App";
+import mockData from "../../api/MockDataAPI";
+import { carModel } from "../../App";
 
 function TradeOrDownPaymentField({p,className,value,setValue}) {
     const [inputValue,setInputValue]= useState(0)

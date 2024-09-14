@@ -1,8 +1,8 @@
 import { useContext} from "react";
-import { carModel,tradeInValue,downPayment, loanMonths,creditScore,apr} from "../App";
-import mockData from "../api/MockDataAPI";
+import { carModel,tradeInValue,downPayment, loanMonths,creditScore,apr} from "../../App";
+import mockData from "../../api/MockDataAPI";
 
-function LoanComponent() {
+function LoanPayment() {
     const chosenCar = useContext(carModel);
     const tradeIn = useContext(tradeInValue);
     const downPaymentValue = useContext(downPayment);
@@ -20,4 +20,4 @@ function LoanComponent() {
     );
   }
   
-export default LoanComponent
+export default LoanPayment;
