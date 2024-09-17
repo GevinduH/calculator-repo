@@ -2,7 +2,7 @@ import React,{ useState,useContext, useEffect} from "react";
 import mockData from "../../api/MockDataAPI";
 import { carModel } from "../../App";
 
-function TradeOrDownPaymentField({componentName,className,value,setValue}) {
+function TradeOrDownPaymentField({componentName,className,tradeOrDownPaymentvalue,setTradeOrDownPaymentValue}) {
     const [inputValue,setInputValue]= useState(0)
     const chosenCar = useContext(carModel)
     const currCar = mockData.find(car => car.vehicleName === chosenCar);
@@ -15,7 +15,7 @@ function TradeOrDownPaymentField({componentName,className,value,setValue}) {
     }
     
     useEffect(()=>{
-        setValue(inputValue);
+        setTradeOrDownPaymentValue(inputValue);
     },[inputValue]) 
 
     return(

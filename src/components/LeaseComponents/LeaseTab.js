@@ -11,8 +11,8 @@ function LeaseTab({downPaymentValue,setdownPaymentValue,tradeFieldValue,settrade
     return (
         <>
             <div className='showContent'>
-                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} value={downPaymentValue} setValue={setdownPaymentValue}/>
-                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
+                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} tradeOrDownPaymentvalue={downPaymentValue} setTradeOrDownPaymentValue={setdownPaymentValue}/>
+                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} tradeOrDownPaymentvalue={tradeFieldValue} setTradeOrDownPaymentValue={settradeFieldValue}/>
                 <ZipcodeField taxes={taxes} setTaxes={setTaxes}/>
                 <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} terms={leaseTerms} setTerms={setLeaseTerms}/>
                 <AnnualMilesField mileage={mileage} setMileage={setMileage} />

@@ -1,7 +1,7 @@
 import React,{createContext, useState} from 'react';
 import './App.css';
 import LoanOrLeaseButton from './components/Common/LoanOrLeaseButton.js';
-import ChooseCar from './components/Common/chooseCar.js';
+import ChooseCar from './components/Common/ChooseCar.js';
 import LoanTab from './components/LoanComponents/LoanTab.js';
 import LeaseTab from './components/LeaseComponents/LeaseTab.js';
 

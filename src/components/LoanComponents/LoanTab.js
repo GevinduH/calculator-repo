@@ -13,9 +13,9 @@ function LoanTab({taxes,setTaxes,creditScoreValue,setCreditScoreValue,tradeField
             <div className='showContent'>
                 <ZipcodeField taxes={taxes} setTaxes={setTaxes} />
                 <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
-                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} value={tradeFieldValue} setValue={settradeFieldValue}/>
+                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} tradeOrDownPaymentvalue={tradeFieldValue} setTradeOrDownPaymentValue={settradeFieldValue}/>
                 <MonthsField termsArr={ [12, 24, 36, 48, 72, 84]} defaultTerm={24} terms={loanTerms} setTerms={setLoanTerms} />
-                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} value={downPaymentValue} setValue={setdownPaymentValue}/>
+                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} tradeOrDownPaymentvalue={downPaymentValue} setTradeOrDownPaymentValue={setdownPaymentValue}/>
                 <APRfield aprValue={aprValue} setAprValue={setAprValue} />
             </div>
 

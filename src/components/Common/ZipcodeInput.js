@@ -10,6 +10,7 @@ function ZipcodeField({taxes,setTaxes}) {
     function calculateTaxes(zipcode) {
       const zipcodeArr = [...zipcode]
       const calculateTax = zipcodeArr.map(Number).map(num => num * 11)
+      setTaxes(calculateTax)
     }
     calculateTaxes(zipcode)
     
