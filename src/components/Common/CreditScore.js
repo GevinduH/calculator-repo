@@ -3,8 +3,9 @@ import React,{useState,useEffect} from "react";
 
 function CreditScoreField({creditScoreValue,setCreditScoreValue}) {
     const [creditScore,setCreditScore]= useState(750)
-    
-
+    function handleCreditScoreField(e) {
+      setCreditScore(parseInt(e.target.value))
+    }
     useEffect(()=>{
         if (creditScore >= 750) {
             setCreditScoreValue(0.95);
@@ -20,7 +21,7 @@ function CreditScoreField({creditScoreValue,setCreditScoreValue}) {
     return(
         <div className="CreditScoreField">
             <h3>Approx. Credit Score</h3>
-            <input type="number" min="600" max="900" step="50" value={creditScore} onChange={(e) => setCreditScore(parseInt(e.target.value))} className="inputFields"/>
+            <input type="number" min="600" max="900" step="50" value={creditScore} onChange={handleCreditScoreField} className="inputFields"/>
         </div>
     )
 }

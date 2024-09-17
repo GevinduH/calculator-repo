@@ -47,7 +47,7 @@ function App() {
         <ChooseCar car={car} setCar={setCar}/>
         <div className="loanAndLeaseButtons">
           {tabs.map((tab)=>{
-              return <LoanOrLeaseButton NameOnButton={tab} key={tab} onClickfunc={updateToggle} classToggleProp={toggleTab}/>
+              return <LoanOrLeaseButton nameOnButton={tab} key={tab} onClickfunc={updateToggle} classToggleProp={toggleTab}/>
           })}
         </div>
 

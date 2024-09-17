@@ -21,5 +21,3 @@ function LeasePayment() {
   }
   
 export default LeasePayment
-
-// (msrp - tradeIn - downPayment) * mileage / 10000 / term * creditScoreValue
