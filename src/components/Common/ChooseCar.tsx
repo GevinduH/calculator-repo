@@ -2,8 +2,8 @@ import React from "react";
 import mockData from "../../api/MockDataAPI";
 
 
-function ChooseCar({car, setCar}) {
-    function handleCarChange(e) {
+export default function ChooseCar({car, setCar}) {
+    function handleCarChange(e:React.ChangeEvent<HTMLSelectElement>) {
         setCar(e.target.value)
     }
     return(
@@ -18,4 +18,5 @@ function ChooseCar({car, setCar}) {
     )
 }
 
-export default ChooseCar;
+// export default ChooseCar;
+
