@@ -4,11 +4,11 @@ import mockData from "../../api/MockDataAPI";
 
 function LoanPayment() {
     const chosenCar = useContext(carModel);
-    const tradeIn = useContext(tradeInValue);
-    const downPaymentValue = useContext(downPayment);
-    const term = useContext(loanMonths);
-    const creditScoreValue = useContext(creditScore);
-    const aprValue = useContext(apr);
+    const tradeIn = useContext<number>(tradeInValue);
+    const downPaymentValue = useContext<number>(downPayment);
+    const term = useContext<number>(loanMonths);
+    const creditScoreValue = useContext<number>(creditScore);
+    const aprValue = useContext<number>(apr);
     const currCar = mockData.find(car => car.vehicleName === chosenCar);
     const loanAmount = (currCar.msrp - tradeIn - downPaymentValue) / (term * creditScoreValue * aprValue)
 

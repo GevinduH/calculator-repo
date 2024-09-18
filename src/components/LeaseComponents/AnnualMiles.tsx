@@ -15,7 +15,7 @@ function AnnualMilesField({mileage,setMileage}) {
     return(
         <div className="annualMilesField">
             <h3>Annual Miles</h3>
-            <select type="number" value={miles} onChange={handleMileage} className="inputFields">
+            <select value={miles} onChange={handleMileage} className="inputFields">
                 {mileages.map(mileage=>(
                     <option key={mileage} value={mileage}>{mileage}</option>
                 ))}

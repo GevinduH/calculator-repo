@@ -1,9 +1,9 @@
 import React, { createContext, useState } from "react";
 import "./App.css";
-import LoanOrLeaseButton from "./components/Common/LoanOrLeaseButton.js";
-import ChooseCar from "./components/Common/ChooseCar.tsx";
-import LoanTab from "./components/LoanComponents/LoanTab.js";
-import LeaseTab from "./components/LeaseComponents/LeaseTab.js";
+import LoanOrLeaseButton from "./components/common/LoanOrLeaseButton.tsx";
+import ChooseCar from "./components/common/ChooseCar.tsx";
+import LoanTab from "./components/LoanComponents/LoanTab.tsx";
+import LeaseTab from "./components/LeaseComponents/LeaseTab.tsx";
 
 export const carModel = createContext();
 export const creditScore = createContext();

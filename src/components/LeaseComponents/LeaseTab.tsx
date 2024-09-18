@@ -1,10 +1,10 @@
 import React from "react";
-import ZipcodeField from "../Common/ZipcodeInput"
-import CreditScoreField from "../Common/CreditScore"
-import TradeOrDownPaymentField from "../Common/TradeOrDownPaymentFields"
-import MonthsField from "../Common/MonthsField"
+import ZipcodeField from "../common/ZipcodeInput"
+import CreditScoreField from "../common/CreditScore"
+import TradeOrDownPaymentField from "../common/TradeOrDownPaymentFields"
+import MonthsField from "../common/MonthsField"
 import LeasePayment from "./LeasePayment"
-import InfoCard from "../Common/InfoCard"
+import InfoCard from "../common/InfoCard"
 import AnnualMilesField from "./AnnualMiles";
 
 function LeaseTab({downPaymentValue,setdownPaymentValue,tradeFieldValue,settradeFieldValue,taxes,setTaxes,leaseTerms,setLeaseTerms,mileage,setMileage,creditScoreValue,setCreditScoreValue}) {
@@ -16,7 +16,7 @@ function LeaseTab({downPaymentValue,setdownPaymentValue,tradeFieldValue,settrade
                 <ZipcodeField taxes={taxes} setTaxes={setTaxes}/>
                 <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} terms={leaseTerms} setTerms={setLeaseTerms}/>
                 <AnnualMilesField mileage={mileage} setMileage={setMileage} />
-                <CreditScoreField creditScoreValue={creditScoreValue} setCreditScoreValue={setCreditScoreValue}/>
+                <CreditScoreField setCreditScoreValue={setCreditScoreValue}/>
             </div>
 
             <div className='showContent allInfo'>

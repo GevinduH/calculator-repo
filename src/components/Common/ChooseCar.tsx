@@ -18,5 +18,5 @@ export default function ChooseCar({car, setCar}) {
     )
 }
 
-// export default ChooseCar;
+
 

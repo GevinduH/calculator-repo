@@ -3,7 +3,7 @@ import mockData from "../../api/MockDataAPI";
 import { carModel } from "../../App";
 
 function TradeOrDownPaymentField({componentName,className,tradeOrDownPaymentvalue,setTradeOrDownPaymentValue}) {
-    const [inputValue,setInputValue]= useState(0)
+    const [inputValue,setInputValue]= useState<string>('0')
     const chosenCar = useContext(carModel)
     const currCar = mockData.find(car => car.vehicleName === chosenCar);
     const currMSRP = currCar ? currCar.msrp : 0;

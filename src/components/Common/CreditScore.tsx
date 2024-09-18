@@ -1,11 +1,12 @@
 import React,{useState,useEffect} from "react";
 
 
-function CreditScoreField({creditScoreValue,setCreditScoreValue}) {
+export default function CreditScoreField({setCreditScoreValue}) {
     const [creditScore,setCreditScore]= useState(750)
-    function handleCreditScoreField(e) {
+    function handleCreditScoreField( e: React.ChangeEvent<HTMLInputElement>) {
       setCreditScore(parseInt(e.target.value))
     }
+
     useEffect(()=>{
         if (creditScore >= 750) {
             setCreditScoreValue(0.95);
@@ -25,5 +26,3 @@ function CreditScoreField({creditScoreValue,setCreditScoreValue}) {
         </div>
     )
 }
-
-export default CreditScoreField;
