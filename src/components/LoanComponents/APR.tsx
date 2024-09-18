@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 
 
-function APRfield({aprValue,setAprValue}) {
+function APRfield({setAprValue}) {
     const [APR,setAPR]= useState(0)
     function handleAPR(e) {
         setAPR(e.target.value)

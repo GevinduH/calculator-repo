@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-function ZipcodeField({taxes,setTaxes}) {
+function ZipcodeField({setTaxes}) {
   const [zipcode,setZipcode] = useState('10600');
   function handleZipcode(e) {
     setZipcode(e.target.value)

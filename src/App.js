@@ -42,7 +42,7 @@ function App() {
                 <loanMonths.Provider value={loanTerms}>
                   <leaseMonths.Provider value={leaseTerms}>
                     <mileageValue.Provider value={mileage}>
-                      <ChooseCar car={car} setCar={setCar} />
+                      <ChooseCar setCar={setCar} />
                       <div className="loanAndLeaseButtons">
                         {tabs.map((tab) => {
                           return (
@@ -58,34 +58,34 @@ function App() {
 
                       {toggleTab === "Loan" && (
                         <LoanTab
-                          taxes={taxes}
+                          // taxes={taxes}
                           setTaxes={setTaxes}
-                          creditScoreValue={creditScoreValue}
+                          // creditScoreValue={creditScoreValue}
                           setCreditScoreValue={setCreditScoreValue}
-                          tradeFieldValue={tradeFieldValue}
+                          // tradeFieldValue={tradeFieldValue}
                           settradeFieldValue={settradeFieldValue}
-                          loanTerms={loanTerms}
+                          // loanTerms={loanTerms}
                           setLoanTerms={setLoanTerms}
-                          downPaymentValue={downPaymentValue}
+                          // downPaymentValue={downPaymentValue}
                           setdownPaymentValue={setdownPaymentValue}
-                          aprValue={aprValue}
+                          // aprValue={aprValue}
                           setAprValue={setAprValue}
                         />
                       )}
 
                       {toggleTab === "Lease" && (
                         <LeaseTab
-                          downPaymentValue={downPaymentValue}
+                          // downPaymentValue={downPaymentValue}
                           setdownPaymentValue={setdownPaymentValue}
-                          tradeFieldValue={tradeFieldValue}
+                          // tradeFieldValue={tradeFieldValue}
                           settradeFieldValue={settradeFieldValue}
-                          taxes={taxes}
+                          // taxes={taxes}
                           setTaxes={setTaxes}
-                          leaseTerms={leaseTerms}
+                          // leaseTerms={leaseTerms}
                           setLeaseTerms={setLeaseTerms}
-                          mileage={mileage}
+                          // mileage={mileage}
                           setMileage={setMileage}
-                          creditScoreValue={creditScoreValue}
+                          // creditScoreValue={creditScoreValue}
                           setCreditScoreValue={setCreditScoreValue}
                         />
                       )}

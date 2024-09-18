@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 
 
-function MonthsField({termsArr,defaultTerm,terms,setTerms}) {
+function MonthsField({termsArr,defaultTerm,setTerms}) {
     const [months,setMonths]= useState(defaultTerm)
     function handleMonths(e) {
         setMonths(e.target.value)

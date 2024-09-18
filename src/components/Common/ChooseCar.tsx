@@ -2,7 +2,7 @@ import React from "react";
 import mockData from "../../api/MockDataAPI";
 
 
-export default function ChooseCar({car, setCar}) {
+export default function ChooseCar({setCar}) {
     function handleCarChange(e:React.ChangeEvent<HTMLSelectElement>) {
         setCar(e.target.value)
     }

@@ -2,7 +2,7 @@ import React,{ useState,useContext, useEffect} from "react";
 import mockData from "../../api/MockDataAPI";
 import { carModel } from "../../App";
 
-function TradeOrDownPaymentField({componentName,className,tradeOrDownPaymentvalue,setTradeOrDownPaymentValue}) {
+function TradeOrDownPaymentField({componentName,className,setTradeOrDownPaymentValue}) {
     const [inputValue,setInputValue]= useState<string>('0')
     const chosenCar = useContext(carModel)
     const currCar = mockData.find(car => car.vehicleName === chosenCar);

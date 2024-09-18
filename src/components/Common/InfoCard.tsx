@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { carModel } from "../../App";
 import mockData from "../../api/MockDataAPI";
 

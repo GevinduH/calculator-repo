@@ -1,7 +1,7 @@
-import React,{useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 
-function AnnualMilesField({mileage,setMileage}) {
+function AnnualMilesField({setMileage}) {
     const [miles,setMiles]= useState(12000)
     const mileages = [10000, 12000, 15000];
     function handleMileage(e) {
