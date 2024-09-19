@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { carModel } from "../../App";
 import mockData from "../../api/MockDataAPI";
 
+
 function InfoCard() {
-    const chosenCar = useContext(carModel)
+    const chosenCar:string = useContext(carModel)
     const currCar = mockData.find(car => car.vehicleName === chosenCar);
     return(
         <div className="info">
