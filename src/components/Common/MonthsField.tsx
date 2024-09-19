@@ -1,9 +1,9 @@
 import React,{useEffect, useState} from "react";
 
 
-function MonthsField({termsArr,defaultTerm,setTerms}) {
+export default function MonthsField({termsArr,defaultTerm,setTerms}) {
     const [months,setMonths]= useState(defaultTerm)
-    function handleMonths(e) {
+    function handleMonths(e: React.ChangeEvent<HTMLSelectElement>) {
         setMonths(e.target.value)
     }
 
@@ -24,5 +24,3 @@ function MonthsField({termsArr,defaultTerm,setTerms}) {
         </div>
     )
 }
-
-export default MonthsField;

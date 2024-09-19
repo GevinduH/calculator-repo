@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../ValueProvider";
 
-function ZipcodeField({setTaxes}) {
+export default function ZipcodeField( ) {
+  const {setTaxes} = useContext(AppContext)
   const [zipcode,setZipcode] = useState('10600');
-  function handleZipcode(e) {
+  function handleZipcode(e: React.ChangeEvent<HTMLInputElement>) {
     setZipcode(e.target.value)
   }
 
   useEffect(()=>{
-    function calculateTaxes(zipcode) {
+    function calculateTaxes(zipcode:string) {
       const zipcodeArr = [...zipcode]
       const calculateTax = zipcodeArr.map(Number).map(num => num * 11)
       setTaxes(calculateTax)
@@ -28,4 +30,4 @@ function ZipcodeField({setTaxes}) {
   );
 }
 
-export default ZipcodeField;
+

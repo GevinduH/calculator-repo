@@ -1,10 +1,12 @@
-import React,{useEffect, useState} from "react";
+import React,{useContext, useEffect, useState} from "react";
+import { AppContext } from "../../ValueProvider";
 
 
-function APRfield({setAprValue}) {
+export default function APRfield() {
+    const {setAprValue} = useContext(AppContext)
     const [APR,setAPR]= useState(0)
-    function handleAPR(e) {
-        setAPR(e.target.value)
+    function handleAPR(e: React.ChangeEvent<HTMLInputElement>) {
+        setAPR(parseInt(e.target.value))
     }
 
     useEffect(()=>{
@@ -17,5 +19,3 @@ function APRfield({setAprValue}) {
         </div>
     )
 }
-
-export default APRfield;

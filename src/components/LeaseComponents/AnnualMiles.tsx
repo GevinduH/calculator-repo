@@ -1,11 +1,13 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import { AppContext } from "../../ValueProvider";
 
 
-function AnnualMilesField({setMileage}) {
-    const [miles,setMiles]= useState(12000)
-    const mileages = [10000, 12000, 15000];
-    function handleMileage(e) {
-        setMiles(e.target.value)
+export default function AnnualMilesField() {
+    const {setMileage} = useContext(AppContext)
+    const [miles,setMiles]= useState<number>(12000)
+    const mileages:number[] = [10000, 12000, 15000];
+    function handleMileage(e:React.ChangeEvent<HTMLSelectElement>) {
+        setMiles(parseInt(e.target.value))
     }
 
     useEffect(()=>{
@@ -23,5 +25,3 @@ function AnnualMilesField({setMileage}) {
         </div>
     )
 }
-
-export default AnnualMilesField;

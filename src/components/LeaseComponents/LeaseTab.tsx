@@ -5,17 +5,20 @@ import MonthsField from "../common/MonthsField"
 import LeasePayment from "./LeasePayment"
 import InfoCard from "../common/InfoCard"
 import AnnualMilesField from "./AnnualMiles";
+import { AppContext } from "../../ValueProvider"
+import { useContext } from "react"
 
-function LeaseTab({setdownPaymentValue,settradeFieldValue,setTaxes,setLeaseTerms,setMileage,setCreditScoreValue}) {
+export default function LeaseTab() {
+    const {setTradeFieldValue,setDownPaymentValue,setLeaseTerms} = useContext(AppContext)
     return (
         <>
             <div className='showContent'>
-                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} setTradeOrDownPaymentValue={setdownPaymentValue}/>
-                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} setTradeOrDownPaymentValue={settradeFieldValue}/>
-                <ZipcodeField setTaxes={setTaxes}/>
+                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} setTradeOrDownPaymentValue={setDownPaymentValue}/>
+                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} setTradeOrDownPaymentValue={setTradeFieldValue}/>
+                <ZipcodeField/>
                 <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} setTerms={setLeaseTerms}/>
-                <AnnualMilesField setMileage={setMileage} />
-                <CreditScoreField setCreditScoreValue={setCreditScoreValue}/>
+                <AnnualMilesField/>
+                <CreditScoreField/>
             </div>
 
             <div className='showContent allInfo'>
@@ -25,5 +28,3 @@ function LeaseTab({setdownPaymentValue,settradeFieldValue,setTaxes,setLeaseTerms
         </>
     )
 }
-
-export default LeaseTab;

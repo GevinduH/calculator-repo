@@ -1,22 +1,24 @@
 import React,{ useState,useContext, useEffect} from "react";
 import mockData from "../../api/MockDataAPI";
 import { carModel } from "../../App";
+import { AppContext } from "../../ValueProvider";
 
-function TradeOrDownPaymentField({componentName,className,setTradeOrDownPaymentValue}) {
-    const [inputValue,setInputValue]= useState<string>('0')
-    const chosenCar = useContext(carModel)
-    const currCar = mockData.find(car => car.vehicleName === chosenCar);
-    const currMSRP = currCar ? currCar.msrp : 0;
+export default function TradeOrDownPaymentField({componentName,className,setTradeOrDownPaymentValue}) {
+    const {car,setMsrp} = useContext(AppContext)
+    const [inputValue,setInputValue]= useState('0')
+    const carDetails = mockData.find(carObj => carObj.vehicleName === car);
+    const currMSRP = carDetails ? carDetails.msrp : 0;
     const numericTradeVal=parseFloat(inputValue)
     const component = className
 
-    function handleTradeorDownPayment(e) {
+    function handleTradeorDownPayment(e: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(e.target.value)
     }
     
     useEffect(()=>{
         setTradeOrDownPaymentValue(inputValue);
-    },[inputValue]) 
+        setMsrp(currMSRP)
+    },[inputValue,currMSRP]) 
 
     return(
         <div className={className}>
@@ -27,5 +29,3 @@ function TradeOrDownPaymentField({componentName,className,setTradeOrDownPaymentV
         </div>
     )
 }
-
-export default TradeOrDownPaymentField;

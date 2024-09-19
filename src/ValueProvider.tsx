@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react';
 
+export const AppContext = createContext(null);
 
-export const AppContext = createContext();
-
-export const AppProvider = ({ children }) => {
+export const GlobalValues= ({ children }) => {
   const [car, setCar] = useState("Toyota Corolla");
+  const [msrp,setMsrp] = useState(0)
   const [toggleTab, setToggleTab] = useState("Loan");
   const [creditScoreValue, setCreditScoreValue] = useState(0.95);
   const [tradeFieldValue, setTradeFieldValue] = useState(0);
@@ -26,7 +26,8 @@ export const AppProvider = ({ children }) => {
       loanTerms, setLoanTerms,
       leaseTerms, setLeaseTerms,
       mileage, setMileage,
-      taxes, setTaxes
+      taxes, setTaxes,
+      msrp,setMsrp
     }}>
       {children}
     </AppContext.Provider>

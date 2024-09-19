@@ -1,23 +1,15 @@
 import { useContext} from "react";
-import { carModel,tradeInValue,downPayment, loanMonths,creditScore,mileageValue} from "../../App";
-import mockData from "../../api/MockDataAPI";
+import { AppContext } from "../../ValueProvider";
 
-function LeasePayment() {
-    const chosenCar = useContext(carModel);
-    const tradeIn:number = useContext(tradeInValue);
-    const downPaymentValue:number = useContext(downPayment);
-    const term:number = useContext(loanMonths);
-    const creditScoreValue:number = useContext(creditScore);
-    const mileage:number = useContext(mileageValue);
-    const currCar = mockData.find(car => car.vehicleName === chosenCar);
-    const leaseAmount = (currCar.msrp - tradeIn - downPaymentValue) * mileage / 10000 /  term * creditScoreValue
+export default function LeasePayment() {
+    const {msrp,mileage,creditScoreValue,downPaymentValue,tradeFieldValue,leaseTerms} = useContext(AppContext);
+    const leaseAmount = (msrp - tradeFieldValue - downPaymentValue) * mileage / 10000 /  leaseTerms * creditScoreValue
 
     return (
       <div className="loanAmount">
-        <b>MSRP</b> : $<del>{currCar.msrp} </del><br/>
+        <b>MSRP</b> : $<del>{msrp} </del><br/>
         <b>Est. Lease Payment:<span className="loanAmount"> ${leaseAmount}/mo</span></b>
       </div>
     );
   }
   
-export default LeasePayment
