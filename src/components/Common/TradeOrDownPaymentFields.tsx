@@ -1,6 +1,5 @@
 import React,{ useState,useContext, useEffect} from "react";
 import mockData from "../../api/MockDataAPI";
-import { carModel } from "../../App";
 import { AppContext } from "../../ValueProvider";
 
 export default function TradeOrDownPaymentField({componentName,className}) {

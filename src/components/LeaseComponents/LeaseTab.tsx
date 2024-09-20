@@ -5,11 +5,8 @@ import MonthsField from "../common/MonthsField"
 import LeasePayment from "./LeasePayment"
 import InfoCard from "../common/InfoCard"
 import AnnualMilesField from "./AnnualMiles";
-import { AppContext } from "../../ValueProvider"
-import { useContext } from "react"
 
 export default function LeaseTab() {
-    const {setTradeFieldValue,setDownPaymentValue,setLeaseTerms} = useContext(AppContext)
     return (
         <>
             <div className='showContent'>

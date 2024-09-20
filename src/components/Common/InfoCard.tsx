@@ -1,8 +1,6 @@
 import { useContext } from "react";
-import { carModel } from "../../App";
 import mockData from "../../api/MockDataAPI"
 import { AppContext } from "../../ValueProvider";
-
 
 export default function InfoCard() {
     const {car} = useContext(AppContext)

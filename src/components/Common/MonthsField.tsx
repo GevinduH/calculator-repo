@@ -1,7 +1,6 @@
 import React,{useContext, useEffect, useState} from "react";
 import { AppContext } from "../../ValueProvider";
 
-
 export default function MonthsField({termsArr}) {
     const {loanTerms,leaseTerms,setLoanTerms,setLeaseTerms,toggleTab} = useContext(AppContext)
     const [months,setMonths]= useState<number>()

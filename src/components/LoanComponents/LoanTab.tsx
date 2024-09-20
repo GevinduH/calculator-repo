@@ -1,4 +1,3 @@
-import { useContext } from "react"
 import ZipcodeField from "../common/ZipcodeInput"
 import CreditScoreField from "../common/CreditScore"
 import TradeOrDownPaymentField from "../common/TradeOrDownPaymentFields"
@@ -6,10 +5,8 @@ import MonthsField from "../common/MonthsField"
 import APRfield from "./APR"
 import LoanPayment from "./LoanPayment"
 import InfoCard from "../common/InfoCard"
-import { AppContext } from "../../ValueProvider"
 
 export default function LoanTab() {
-    const {setTradeFieldValue,setDownPaymentValue,setLoanTerms} = useContext(AppContext)
     return (
         <>
             <div className='showContent'>
