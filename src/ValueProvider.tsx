@@ -1,19 +1,42 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const AppContext = createContext(null);
 
+const getSessionStorage = (key:string, initialValue:string) => {
+  const storedValue = sessionStorage.getItem(key); 
+  return storedValue ? JSON.parse(storedValue) : initialValue;
+};
+
+
 export const GlobalValues= ({ children }) => {
-  const [car, setCar] = useState("Toyota Corolla");
-  const [msrp,setMsrp] = useState(0)
-  const [toggleTab, setToggleTab] = useState("Loan");
-  const [creditScoreValue, setCreditScoreValue] = useState(0.95);
-  const [tradeFieldValue, setTradeFieldValue] = useState(0);
-  const [downPaymentValue, setDownPaymentValue] = useState(0);
-  const [aprValue, setAprValue] = useState(0);
-  const [loanTerms, setLoanTerms] = useState(24);
-  const [leaseTerms, setLeaseTerms] = useState(36);
-  const [mileage, setMileage] = useState(12000);
-  const [taxes, setTaxes] = useState([11, 0, 66, 0, 0]);
+  const [car, setCar] = useState(() => getSessionStorage('car', 'Toyota Corolla'));
+  const [msrp,setMsrp] = useState(() => getSessionStorage('msrp', '0'))
+  const [toggleTab, setToggleTab] = useState(() => getSessionStorage('toggleTab', 'Loan'));
+  const [creditScoreValue, setCreditScoreValue] = useState(() => getSessionStorage('creditScoreValue', '0.95'));
+  const [tradeFieldValue, setTradeFieldValue] = useState(() => getSessionStorage('tradeFieldValue', '0'));
+  const [downPaymentValue, setDownPaymentValue] = useState(() => getSessionStorage('downPaymentValue', '0'));
+  const [aprValue, setAprValue] = useState(() => getSessionStorage('aprValue', '0'));
+  const [loanTerms, setLoanTerms] = useState(() => getSessionStorage('loanTerms', '24'));
+  const [leaseTerms, setLeaseTerms] = useState(() => getSessionStorage('leaseTerms', '36'));
+  const [mileage, setMileage] = useState(() => getSessionStorage('mileage', '12000'));
+  const [taxes, setTaxes] = useState(() => getSessionStorage('taxes', '[11, 0, 66, 0, 0]'));
+
+  useEffect(() => {
+    sessionStorage.setItem('car', JSON.stringify(car));
+    sessionStorage.setItem('msrp', JSON.stringify(msrp));
+    sessionStorage.setItem('toggleTab', JSON.stringify(toggleTab));
+    sessionStorage.setItem('creditScoreValue', JSON.stringify(creditScoreValue));
+    sessionStorage.setItem('tradeFieldValue', JSON.stringify(tradeFieldValue));
+    sessionStorage.setItem('downPaymentValue', JSON.stringify(downPaymentValue));
+    sessionStorage.setItem('aprValue', JSON.stringify(aprValue));
+    sessionStorage.setItem('loanTerms', JSON.stringify(loanTerms));
+    sessionStorage.setItem('leaseTerms', JSON.stringify(leaseTerms));
+    sessionStorage.setItem('mileage', JSON.stringify(mileage));
+    sessionStorage.setItem('taxes', JSON.stringify(taxes));
+  }, [
+    car, msrp, toggleTab, creditScoreValue, tradeFieldValue, downPaymentValue,
+    aprValue, loanTerms, leaseTerms, mileage, taxes
+  ]);
 
   return (
     <AppContext.Provider value={{

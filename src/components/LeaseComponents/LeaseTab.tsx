@@ -13,8 +13,8 @@ export default function LeaseTab() {
     return (
         <>
             <div className='showContent'>
-                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'} setTradeOrDownPaymentValue={setDownPaymentValue}/>
-                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} setTradeOrDownPaymentValue={setTradeFieldValue}/>
+                <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'}/>
+                <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} />
                 <ZipcodeField/>
                 <MonthsField termsArr={[24, 36, 48]} defaultTerm={36} setTerms={setLeaseTerms}/>
                 <AnnualMilesField/>
