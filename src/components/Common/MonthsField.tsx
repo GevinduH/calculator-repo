@@ -1,14 +1,28 @@
-import React,{useEffect, useState} from "react";
+import React,{useContext, useEffect, useState} from "react";
+import { AppContext } from "../../ValueProvider";
 
 
-export default function MonthsField({termsArr,defaultTerm,setTerms}) {
-    const [months,setMonths]= useState(defaultTerm)
+export default function MonthsField({termsArr}) {
+    const {loanTerms,leaseTerms,setLoanTerms,setLeaseTerms,toggleTab} = useContext(AppContext)
+    const [months,setMonths]= useState<number>()
     function handleMonths(e: React.ChangeEvent<HTMLSelectElement>) {
-        setMonths(e.target.value)
+        setMonths(parseInt(e.target.value))
     }
 
     useEffect(()=>{
-        setTerms(months)
+        if (toggleTab==='Loan') {
+            setMonths(loanTerms)
+        }else {
+            setMonths(leaseTerms) 
+        }
+    },[])
+
+    useEffect(()=>{
+        if (toggleTab==='Loan') {
+            setLoanTerms(months)
+        }else {
+            setLeaseTerms(months) 
+        }
     },[months])
 
     

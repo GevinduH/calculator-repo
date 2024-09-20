@@ -16,7 +16,7 @@ export default function LoanTab() {
                 <ZipcodeField/>
                 <CreditScoreField/>
                 <TradeOrDownPaymentField componentName={'Trade-in Value'} className={'tradeField'} />
-                <MonthsField termsArr={ [12, 24, 36, 48, 72, 84]} defaultTerm={24} setTerms={setLoanTerms}/>
+                <MonthsField termsArr={ [12, 24, 36, 48, 72, 84]}/>
                 <TradeOrDownPaymentField componentName={'Down Payment'} className={'DownPaymentField'}/>
                 <APRfield/>
             </div>
