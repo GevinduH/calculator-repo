@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../ValueProvider";
 
 export default function ZipcodeField( ) {
-  const {setTaxes} = useContext(AppContext)
-  const [zipcode,setZipcode] = useState('10600');
+  const {zipcode,setZipcode,setTaxes} = useContext(AppContext)
   function handleZipcode(e: React.ChangeEvent<HTMLInputElement>) {
     setZipcode(e.target.value)
   }

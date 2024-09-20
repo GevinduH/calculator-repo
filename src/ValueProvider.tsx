@@ -20,6 +20,7 @@ export const GlobalValues= ({ children }) => {
   const [leaseTerms, setLeaseTerms] = useState(() => getSessionStorage('leaseTerms', '36'));
   const [mileage, setMileage] = useState(() => getSessionStorage('mileage', '12000'));
   const [taxes, setTaxes] = useState(() => getSessionStorage('taxes', '[11, 0, 66, 0, 0]'));
+  const [zipcode,setZipcode] = useState(() => getSessionStorage('zipcode', '10600'));
 
   useEffect(() => {
     sessionStorage.setItem('car', JSON.stringify(car));
@@ -33,9 +34,10 @@ export const GlobalValues= ({ children }) => {
     sessionStorage.setItem('leaseTerms', JSON.stringify(leaseTerms));
     sessionStorage.setItem('mileage', JSON.stringify(mileage));
     sessionStorage.setItem('taxes', JSON.stringify(taxes));
+    sessionStorage.setItem('zipcode', JSON.stringify(zipcode));
   }, [
     car, msrp, toggleTab, creditScoreValue, tradeFieldValue, downPaymentValue,
-    aprValue, loanTerms, leaseTerms, mileage, taxes
+    aprValue, loanTerms, leaseTerms, mileage, taxes,zipcode
   ]);
 
   return (
@@ -50,7 +52,8 @@ export const GlobalValues= ({ children }) => {
       leaseTerms, setLeaseTerms,
       mileage, setMileage,
       taxes, setTaxes,
-      msrp,setMsrp
+      msrp,setMsrp,
+      zipcode,setZipcode
     }}>
       {children}
     </AppContext.Provider>

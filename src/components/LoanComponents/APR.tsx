@@ -3,19 +3,18 @@ import { AppContext } from "../../ValueProvider";
 
 
 export default function APRfield() {
-    const {setAprValue} = useContext(AppContext)
-    const [APR,setAPR]= useState(0)
+    const {aprValue,setAprValue} = useContext(AppContext)
     function handleAPR(e: React.ChangeEvent<HTMLInputElement>) {
-        setAPR(parseInt(e.target.value))
+        setAprValue(parseInt(e.target.value))
     }
 
     useEffect(()=>{
-        setAprValue(APR)
-    },[APR,setAprValue])
+        setAprValue(aprValue)
+    },[aprValue])
     return(
         <div className="APRfield">
             <h3>Estimated APR</h3>
-            <input type="text" value={APR} onChange={handleAPR} className="inputFields"/> %
+            <input type="text" value={aprValue} onChange={handleAPR} className="inputFields"/> %
         </div>
     )
 }
