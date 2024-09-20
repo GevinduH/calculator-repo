@@ -23,7 +23,7 @@ export default function App() {
             <LoanOrLeaseButton
               nameOnButton={tab}
               key={tab}
-              onClickfunc={updateToggle}
+              onClickFunc={updateToggle}
               classToggleProp={toggleTab}
             />
           );
