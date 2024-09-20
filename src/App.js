@@ -7,30 +7,30 @@ import LeaseTab from "./components/LeaseComponents/LeaseTab.tsx";
 import { AppContext } from "./ValueProvider.tsx";
 
 export default function App() {
-  const tabs = ["Loan", "Lease"];
-  const { toggleTab, setToggleTab } = useContext(AppContext);
+	const tabs = ["Loan", "Lease"];
+	const { toggleTab, setToggleTab } = useContext(AppContext);
 
-  function updateToggle(name) {
-    setToggleTab(name);
-  }
+	function updateToggle(name) {
+		setToggleTab(name);
+	}
 
-  return (
-    <div className="body">
-      <ChooseCar />
-      <div className="loanAndLeaseButtons">
-        {tabs.map((tab) => {
-          return (
-            <LoanOrLeaseButton
-              nameOnButton={tab}
-              key={tab}
-              onClickFunc={updateToggle}
-              classToggleProp={toggleTab}
-            />
-          );
-        })}
-      </div>
-      {toggleTab === "Loan" && <LoanTab />}
-      {toggleTab === "Lease" && <LeaseTab />}
-    </div>
-  );
+	return (
+		<div className="body">
+			<ChooseCar />
+			<div className="loanAndLeaseButtons">
+				{tabs.map((tab) => {
+					return (
+						<LoanOrLeaseButton
+							nameOnButton={tab}
+							key={tab}
+							onClickFunc={updateToggle}
+							classToggleProp={toggleTab}
+						/>
+					);
+				})}
+			</div>
+			{toggleTab === "Loan" && <LoanTab />}
+			{toggleTab === "Lease" && <LeaseTab />}
+		</div>
+	);
 }
